@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+	/* Multimedia Elements Styling */
+        .multimedia-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .multimedia-container audio,
+        .multimedia-container video {
+            display: block; 
+            margin: 15px auto; 
+            max-width: 100%; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .multimedia-container video {
+            border: 2px solid #ddd;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px; 
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #0056b3; 
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        /* Ordered List with Roman Numerals */
+        ol.roman-numerals {
+            list-style-type: upper-roman;
+            padding-left: 40px;
+            margin-bottom: 25px;
+        }
+
+        ol.roman-numerals li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* External Image Styling */
+        .external-image-container {
+            text-align: center; 
+            margin-bottom: 25px;
+        }
+
+        img.external-image {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Table Styling */
+        table.contacts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table.contacts-table th, table.contacts-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table.contacts-table th {
+            background-color: #007bff; 
+            color: white;
+            font-weight: bold;
+        }
+
+        table.contacts-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; 
+        }
+
+        table.contacts-table tbody tr:hover {
+            background-color: #f1f1f1; 
+        }
+
+        /* Registration Form Styling */
+        form.registration-form {
+            background-color: #fdfdfd;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        form.registration-form .form-group { 
+            margin-bottom: 20px;
+        }
+
+        form.registration-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        form.registration-form input[type="text"],
+        form.registration-form input[type="email"],
+        form.registration-form input[type="tel"],
+        form.registration-form input[type="password"],
+        form.registration-form input[type="date"],
+        form.registration-form select, 
+        form.registration-form textarea {
+            width: calc(100% - 24px); 
+            padding: 12px;
+            margin-bottom: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        form.registration-form input:focus,
+        form.registration-form select:focus,
+        form.registration-form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.25);
+        }
+
+        /* Styling for radio buttons and checkboxes */
+        .radio-group label, .checkbox-group label {
+            font-weight: normal; 
+            margin-right: 15px;
+            display: inline-flex; 
+            align-items: center;
+        }
+        .radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+            width: auto; 
+        }
+
+
+        form.registration-form input[type="submit"] {
+            background-color: #28a745; 
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            width: 100%; 
+        }
+
+        form.registration-form input[type="submit"]:hover {
+            background-color: #218838; 
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            table.contacts-table th, table.contacts-table td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+            form.registration-form input[type="text"],
+            form.registration-form input[type="email"],
+            form.registration-form input[type="tel"],
+            form.registration-form input[type="password"],
+            form.registration-form input[type="date"],
+            form.registration-form select,
+            form.registration-form textarea {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Electrona</h1>
+	<LeftMouse> <h2>Multimedia Showcase</h2>
+        <div class="multimedia-container">
+            <h3>Sample Audio</h3>
+            <audio controls>
+                <source src="sample_audio.mp3" type="audio/mpeg">
+                <source src="sample_audio.ogg" type="audio/ogg">
+                Your browser does not support the audio element. Please update your browser.
+            </audio>
+            <p><small>Note: You'll need to replace "sample_audio.mp3" and "sample_audio.ogg" with actual audio file paths.</small></p>
+
+            <h3>Sample Video</h3>
+            <video controls width="600" height="340" poster="https://placehold.co/600x340/777777/ffffff?text=Video+Poster">
+                <source src="sample_video.mp4" type="video/mp4">
+                <source src="sample_video.webm" type="video/webm">
+                Your browser does not support the video tag. Please update your browser.
+            </video>
+            <p><small>Note: You'll need to replace "sample_video.mp4" and "sample_video.webm" with actual video file paths, and optionally update the poster image.</small></p>
+        </div>
+        <h2>Featured Image from Pexels</h2>
+        <div class="external-image-container">
+            <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                 alt="Scenic mountain landscape with aurora"
+                 class="external-image"
+                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
+        </div>
+
+        <h2>Contact Directory</h2>
+        <table class="contacts-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Aisha Kimani</td>
+                    <td>123 Savannah Rd, Nairobi</td>
+                    <td>+254 700 123456</td>
+                    <td>aisha.kimani@example.com</td>
+                </tr>
+                <tr>
+                    <td>Prevyne Oketch</td>
+                    <td>45 Uhuru Estate, Mombasa</td>
+                    <td>+254 711 654321</td>
+                    <td>prevyne.oketch@example.com</td>
+                </tr>
+                <tr>
+                    <td>Chidinma Eze</td>
+                    <td>789 Innovation Hub, Lagos</td>
+                    <td>+234 802 987654</td>
+                    <td>chidinma.eze@example.com</td>
+                </tr>
+                <tr>
+                    <td>David Miller</td>
+                    <td>10 Tech Park, Cape Town</td>
+                    <td>+27 82 1122334</td>
+                    <td>david.miller@example.com</td>
+                </tr>
+                <tr>
+                    <td>Fatima Al-Jamil</td>
+                    <td>22 Oasis Lane, Dubai</td>
+                    <td>+971 50 5550011</td>
+                    <td>fatima.aljamil@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>User Registration</h2>
+        <form action="/submit_registration" method="post" class="registration-form">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required minlength="3">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" name="password" placeholder="Minimum 8 characters" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">Date of Birth:</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="" disabled selected>-- Select your country --</option>
+                    <option value="KE">Kenya</option>
+                    <option value="UG">Uganda</option>
+                    <option value="TZ">Tanzania</option>
+                    <option value="RW">Rwanda</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="GH">Ghana</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label> <div class="radio-group">
+                    <label for="genderMale"><input type="radio" id="genderMale" name="gender" value="male" required> Male</label>
+                    <label for="genderFemale"><input type="radio" id="genderFemale" name="gender" value="female"> Female</label>
+                    <label for="genderOther"><input type="radio" id="genderOther" name="gender" value="other"> Other</label>
+                    <label for="genderPreferNot"><input type="radio" id="genderPreferNot" name="gender" value="prefer_not_to_say"> Prefer not to say</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Interests:</label> <div class="checkbox-group">
+                    <label for="interestTech"><input type="checkbox" id="interestTech" name="interests" value="technology"> Technology</label>
+                    <label for="interestSports"><input type="checkbox" id="interestSports" name="interests" value="sports"> Sports</label>
+                    <label for="interestMusic"><input type="checkbox" id="interestMusic" name="interests" value="music"> Music</label>
+                    <label for="interestTravel"><input type="checkbox" id="interestTravel" name="interests" value="travel"> Travel</label>
+                </div>
+                </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                     <label for="terms"><input type="checkbox" id="terms" name="terms" value="accepted" required> I agree to the <a href="/terms" target="_blank">Terms and Conditions</a></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register Account">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
